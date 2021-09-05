@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="show" class="watch"></div>
+        <div id="day" class="watch"></div>
+        <script>
+           function clock() {
+    var time = new Date();
+    var h = time.getHours();
+    var m = time.getMinutes();
+    var s = time.getSeconds();
+    var day = time.getDay();
+    var dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sunday']
+
+    var session = '';
+
+
+    if (h == 0) {
+        h = 12;
+    }
+    if (h > 12) {
+        h = h - 12;
+        session = 'PM';
+    }
+    else {
+        session = 'AM'
+    }
+    h = (h < 10) ? '0' + h : h;
+    m = (m < 10) ? '0' + m : m;
+    s = (s < 10) ? '0' + s : s;
+
+
+
+    var check = `${h} : ${m} : ${s} : ${session}`
+
+    setTimeout(clock, 1000);
+    document.getElementById("show").innerHTML = check;
+    document.getElementById("day").innerHTML =`  ${dayList[day].substr(0, 3)}`;
+}; clock()
+        </script>
+    </body>
+
+</html>
